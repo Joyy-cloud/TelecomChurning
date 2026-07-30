@@ -3,16 +3,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-from app_pages.dashboard import dashboard_body
 
-# Initialize the multipage app
-app = MultiPage(app_name="Dashboard App")
-
-# Add the page (passing title and page function)
-app.add_page("Insurance", dashboard_body)
-
-# Run the app
-app.run()
 
 # ==========================================
 # PAGE CONFIGURATION
