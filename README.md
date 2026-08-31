@@ -37,6 +37,48 @@ Customer churn is a critical metric for subscription-based telecom businesses. T
 | `MonthlyCharges` | Float | The amount charged to the customer monthly |
 | `TotalCharges` | Object / Float | The total amount charged to the customer |
 
+
+## **Project Implementation Plan**
+
+### **Phase 1: Setup & Data Acquisition** *(Estimated Duration: Week 1)*
+Establish environment, repository structure, and initial data exploration.
+* **Repository Setup:** Structure project directories (`data/`, `notebooks/`, `models/`, `app/`, `tests/`).
+* **Data Collection:** Ingest telecom dataset (e.g., Telco Customer Churn - ~7,043 rows, 21 features).
+* **Environment:** Define dependencies (`pandas`, `scikit-learn`, `streamlit`, `joblib`, `pytest`).
+
+### **Phase 2: EDA & Feature Engineering** *(Estimated Duration: Weeks 2–3)*
+Clean, analyse, and transform features for model training.
+* **Data Cleaning:** Handle missing values (e.g., `TotalCharges` space strings) and drop non-informative IDs (`customerID`).
+* **Feature Transformation:** Apply One-Hot Encoding (`InternetService`, `PaymentMethod`), numeric binning (`tenure`, `MonthlyCharges`), and standard scaling.
+
+### **Phase 3: Model Development & Evaluation** *(Estimated Duration: Weeks 4–5)*
+Train classifiers, tune hyperparameters, and evaluate business metrics.
+* **Model Experiments:** Train Logistic Regression, Random Forest, and XGBoost baselines.
+* **Evaluation:** Measure Precision, Recall (maximizing churn capture), ROC-AUC (> 0.88 target), and Confusion Matrix tradeoffs.
+* **Serialization:** Export tuned models and scaler pipelines to `artifacts/`.
+
+### **Phase 4: Implementation & Deployment** *(Estimated Duration: Weeks 6–7)*
+Build the user interface and deploy the real-time inference system into production.
+* **API / Web Application:** Develop interactive frontend (Streamlit) or REST endpoints (FastAPI) for inputting customer profiles.
+* **CI/CD Pipeline:** Configure GitHub Actions for automated unit testing (`pytest`) and linting on push.
+* **Containerization & Hosting:** Package app with Docker and deploy to Streamlit
+
+### **Phase 5: Post-Deployment Evaluation** *(Estimated Duration: Week 8)*
+Assess real-world model accuracy and evaluate retention business impact.
+* **Business Validation:** Compare predicted high-risk churners against actual customer retention outcomes following marketing intervention.
+* **A/B Testing:** Evaluate churn reduction rates between targeted incentive offers vs. control groups.
+
+### **Phase 6: Maintenance & Performance Monitoring** *(Estimated Duration: Ongoing)*
+Monitor operational health and detect data/concept drift.
+* **Drift Monitoring:** Monitor shifts in feature distributions (Data Drift) or changes in customer churn behavior (Concept Drift).
+* **System Health:** Track API latency, uptime, resource utilization, and prediction throughput.
+* **Alerting:** Set automated notifications (e.g., via Slack or email) if key metric thresholds (ROC-AUC drop > 5%) are breached.
+
+### **Phase 7: Model Updates & Retraining** *(Estimated Duration: Periodic - Quarterly / As Needed)*
+Keep the model aligned with changing customer behavior and business offerings.
+* **Scheduled Retraining:** Re-train models periodically using newly labeled ground-truth customer data.
+* **Trigger-Based Retraining:** Automatically run retraining pipelines when drift alerts are triggered.
+* **Champion-Challenger Testing:** Benchmark newly trained models ("Challengers") against the live deployed model ("Champion") before shadow deployment.
 ---
 
 ## ⚙️ Pipeline Architecture
