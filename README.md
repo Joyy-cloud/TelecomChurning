@@ -8,7 +8,7 @@ Customer churn is a critical metric for subscription-based telecom businesses. T
 ---
 ## Generative AI Usage & Disclosure
 
-Generative AI (e.g., ChatGPT / Claude) was utilized throughout this project to support both technical development and communication:
+Generative AI (Gemini) was utilized throughout this project to support both technical development and communication:
 
 * **Data Storytelling & Summarization:** AI was used to draft executive summaries, structure business insights, and translate complex statistical churn drivers into actionable recommendations for non-technical stakeholders.
 * **Narrative Synthesis:** Assisted in refining the flow and tone of the analytical narrative across the project's final documentation and notebook markdown cells.
