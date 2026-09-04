@@ -6,11 +6,20 @@ This repository contains an end-to-end machine learning pipeline to analyze and 
 Customer churn is a critical metric for subscription-based telecom businesses. This is because it is far more expensive to acquire a new customer than to retain an existing one. This project utilizes historical customer data to build a predictive model that estimates the likelihood of a customer leaving (`Churn = Yes`).
 
 ---
+## Generative AI Usage & Disclosure
+
+Generative AI (e.g., ChatGPT / Claude) was utilized throughout this project to support both technical development and communication:
+
+* **Data Storytelling & Summarization:** AI was used to draft executive summaries, structure business insights, and translate complex statistical churn drivers into actionable recommendations for non-technical stakeholders.
+* **Narrative Synthesis:** Assisted in refining the flow and tone of the analytical narrative across the project's final documentation and notebook markdown cells.
+* **Code Optimization & Troubleshooting:** Used as a thought partner for debugging data pipelines and refining feature engineering scripts.
 
 ## 📊 Dataset Metadata
 * **Source:** IBM Sample Datasets (Telco Customer Churn)
 * **Format:** CSV
 * **Target Variable:** `Churn` (Yes/No - Indicating if the customer left within the last month)
+
+---
 
 ### Data Dictionary
 
@@ -42,7 +51,7 @@ Customer churn is a critical metric for subscription-based telecom businesses. T
 
 ### **Phase 1: Setup & Data Acquisition** *(Estimated Duration: Week 1)*
 Establish environment, repository structure, and initial data exploration.
-* **Repository Setup:** Structure project directories (`data/`, `notebooks/`, `models/`, `app/`, `tests/`).
+* **Repository Setup:** Structure project directories (`data/`, `notebooks/`, `models/`, `app/`,`plots/`).
 * **Data Collection:** Ingest telecom dataset (e.g., Telco Customer Churn - ~7,043 rows, 21 features).
 * **Environment:** Define dependencies (`pandas`, `scikit-learn`, `streamlit`, `joblib`, `pytest`).
 
@@ -61,17 +70,16 @@ Train classifiers, tune hyperparameters, and evaluate business metrics.
 Build the user interface and deploy the real-time inference system into production.
 * **API / Web Application:** Develop interactive frontend (Streamlit) or REST endpoints (FastAPI) for inputting customer profiles.
 * **CI/CD Pipeline:** Configure GitHub Actions for automated unit testing (`pytest`) and linting on push.
-* **Containerization & Hosting:** Package app with Docker and deploy to Streamlit
+* **Hosting:** Deploy app to Streamlit
 
 ### **Phase 5: Post-Deployment Evaluation** *(Estimated Duration: Week 8)*
 Assess real-world model accuracy and evaluate retention business impact.
 * **Business Validation:** Compare predicted high-risk churners against actual customer retention outcomes following marketing intervention.
-* **A/B Testing:** Evaluate churn reduction rates between targeted incentive offers vs. control groups.
 
 ### **Phase 6: Maintenance & Performance Monitoring** *(Estimated Duration: Ongoing)*
 Monitor operational health and detect data/concept drift.
 * **Drift Monitoring:** Monitor shifts in feature distributions (Data Drift) or changes in customer churn behavior (Concept Drift).
-* **System Health:** Track API latency, uptime, resource utilization, and prediction throughput.
+* **System Health:** Track API latency, uptime, resource utilisation, and prediction throughput.
 * **Alerting:** Set automated notifications (e.g., via Slack or email) if key metric thresholds (ROC-AUC drop > 5%) are breached.
 
 ### **Phase 7: Model Updates & Retraining** *(Estimated Duration: Periodic - Quarterly / As Needed)*
@@ -94,6 +102,7 @@ The workflow is broken down into structured notebook phases:
    * Computes baseline churn rates.
    * Explores relationships between contract terms, internet service types, and churn rates.
    * Identifies multicollinearity via correlation heatmaps.
+   * Display charts on Power BI for interactive dashboarding
 
 3. **`03_data_transformation.ipynb`**
    * One-hot encodes multi-class categorical features.
